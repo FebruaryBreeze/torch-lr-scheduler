@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "lr_scheduler_config",
+  "description": "Lr Scheduler Config",
+  "type": "object",
+  "properties": {
+    "learning_rate_scale": {
+      "type": "number",
+      "default": 1.0,
+      "description": "Support scale LR from hybrid config"
+    },
+    "line_chain": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [],
+      "description": "follow https://github.com/FebruaryBreeze/line-chain"
+    }
+  },
+  "additionalProperties": false
+}

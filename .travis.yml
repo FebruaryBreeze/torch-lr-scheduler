@@ -1,0 +1,22 @@
+language: python
+cache: pip
+python:
+  - '3.6'
+install:
+  - pip install https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl
+  - pip install -r requirements.txt
+  - pip install flake8 pytest pytest-cov codecov -U
+script:
+  - python -m flake8
+  - python -m pytest --cov=torch_lr_scheduler
+after_success:
+  - codecov --token=d53d90b4-bbaa-422a-9f97-d7cede14a8e4
+deploy:
+  provider: pypi
+  user: sfzhou
+  on:
+    branch: master
+  skip_cleanup: true
+  skip_existing: true
+  password:
+    secure: 8NFxe4Wb/UeXQor6tS3SYgpAhr3mNXLQLQqKL1iXStwAPCMkohXxrzfawWE23BNrSa2VnbWB5mX6Cs7KMviAflYNOiWekt+1Q3E/geReAn3F4KrO1hV/+GQya6+H05iCbXtBy1UD64Up9tOJyXd4g0fH0W4JmamNg2TBVR1mxaZ3ZutFw1yYRi0ZwE3zvAThaP8y9WBNXJAr3mQffFk8s8BN7Ez4yyB+Oi3sV0xma0t9OrzwjoGSsK8p0uB0xeoc+Gg1Vw8S6fYjbITiphpkPI9Xw7haZcezuGYTYr5fXVmcAcVbuwiIyXQLsXecEZItD0b/2fn0Ccd2f9dYxRb5KOaPtbtoBRWVALlPR1ELwqd3ew+Rq+L7WODRhFJAWIZOeQArEBkeqnvjcro0GrfFIpRN4aCqVJx8lkaTb/FfKbz7mC5uXxh4jbhOEnvLit6hAkJ98BcH33Qif8mWi4GxiDXCt1baZSxTZKvNaIf32IeTwYN6iHMBy9Mh16O6OVVMRDmxk9hNC/AB8IWRVT0YcF+TN7ILrY8SuOGobwPDiqRpEB0sAHk/Kvds0CH1p9LpraaxNaM3MIEO+K9QOA8XTBAiikRXuqZRRN8p/iFtz502Kfpem9CtufB+Q4+c5GfxsAdoplvyrz91OSCld8xVF5zACDc6YUPz31tM1/5yTms=
