@@ -1,4 +1,4 @@
 jsonschema
-json-schema-to-class>=0.1.0
-line-chain
+json-schema-to-class>=0.2.1
+line-chain>=0.0.3
 torch
